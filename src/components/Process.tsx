@@ -125,7 +125,7 @@ export default function Process() {
   };
 
   return (
-    <section id="proceso" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white overflow-hidden" ref={sectionRef}>
+    <section id="proceso" className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-white overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Título animado */}
         <motion.div

@@ -110,7 +110,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-brand-soft-orange/5 overflow-hidden" ref={sectionRef}>
+    <section className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-brand-soft-orange/5 overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-6 sm:mb-16"
