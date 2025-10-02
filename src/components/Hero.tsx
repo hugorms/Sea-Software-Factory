@@ -163,7 +163,7 @@ export default function Hero() {
         <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-4 sm:gap-6 md:gap-6 lg:gap-10 items-center">
 
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
-          <div className="overflow-hidden w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
+          <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
             <motion.h1
               className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight"
               variants={titleVariants}
