@@ -160,7 +160,7 @@ export default function Hero() {
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: grid 2 columnas */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-4 sm:gap-6 md:gap-6 lg:gap-10 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-3 sm:gap-4 md:gap-5 lg:gap-10 items-center">
 
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
           <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
@@ -293,7 +293,7 @@ export default function Hero() {
           >
             <motion.button
               onClick={scrollToContact}
-              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
+              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -309,7 +309,7 @@ export default function Hero() {
             </motion.button>
 
             <motion.button
-              className="border-2 border-brand-dark-green text-brand-dark-green px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:border-brand-mustard hover:text-brand-mustard transition-all duration-200 relative overflow-hidden group"
+              className="border-2 border-brand-dark-green text-brand-dark-green px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:border-brand-mustard hover:text-brand-mustard transition-all duration-200 relative overflow-hidden group"
               variants={buttonVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -326,7 +326,7 @@ export default function Hero() {
 
           {/* ESTADÍSTICAS - Orden 5 en móvil, orden 4 en desktop */}
           <motion.div
-            className="grid grid-cols-3 gap-1 sm:gap-3 md:gap-4 lg:gap-5 pt-1 sm:pt-2 md:pt-3 lg:pt-4 w-full order-5 lg:order-5 lg:col-start-1 lg:row-start-4"
+            className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-3 lg:gap-4 w-full order-5 lg:order-5 lg:col-start-1 lg:row-start-4"
             variants={titleVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
