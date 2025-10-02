@@ -108,7 +108,7 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="py-8 sm:py-20 bg-gradient-to-br from-white via-brand-mustard/5 to-brand-soft-orange/5 overflow-hidden"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-white via-brand-mustard/5 to-brand-soft-orange/5 overflow-hidden"
       ref={sectionRef}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">

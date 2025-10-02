@@ -5,7 +5,12 @@
       "Bash(npm install:*)",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nImplementar animaciones completas con Framer Motion y reorganizar layout móvil del Hero\n\n- Agregar animaciones en todas las secciones: Hero, Services, Process, About, Testimonial, Contact, Footer, Header\n- Implementar contadores animados usando requestAnimationFrame\n- Crear collage de 3 imágenes en Hero con efecto zoom-out\n- Reorganizar orden en móvil: título → subtítulo → imágenes → botones → porcentajes\n- Aplicar color verde consistente (rgba(26, 77, 46, 0.95)) en todos los contenedores oscuros\n- Añadir efectos 3D, parallax, ripple y stagger en componentes\n- Configurar Vite para desarrollo en localhost\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

@@ -152,11 +152,11 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-screen bg-gradient-to-br from-white via-brand-mustard/10 to-brand-soft-orange/10 pt-12 sm:pt-20 flex items-center overflow-hidden"
+      className="min-h-[600px] md:min-h-[700px] lg:min-h-screen bg-gradient-to-br from-white via-brand-mustard/10 to-brand-soft-orange/10 pt-12 md:pt-16 lg:pt-20 flex items-center overflow-hidden"
       ref={sectionRef}
     >
       <motion.div
-        className="max-w-screen-2xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-20"
+        className="max-w-screen-2xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-12 lg:py-16"
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: grid 2 columnas */}
@@ -165,7 +165,7 @@ export default function Hero() {
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
           <div className="overflow-hidden w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -210,7 +210,7 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-2 lg:gap-3">
               {/* Imagen Grande - Ocupa 2 columnas - MÁS ALTA */}
               <motion.div
-                className="col-span-2 h-64 sm:h-80 lg:h-[26rem] overflow-hidden rounded-lg shadow-lg relative group"
+                className="col-span-2 h-48 sm:h-64 md:h-72 lg:h-80 xl:h-[26rem] overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -228,7 +228,7 @@ export default function Hero() {
 
               {/* Imágenes Medianas - 2 columnas - MÁS GRANDES */}
               <motion.div
-                className="h-48 sm:h-56 lg:h-72 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-36 sm:h-48 md:h-56 lg:h-64 xl:h-72 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -245,7 +245,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
-                className="h-48 sm:h-56 lg:h-72 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-36 sm:h-48 md:h-56 lg:h-64 xl:h-72 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
