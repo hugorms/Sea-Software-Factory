@@ -124,16 +124,10 @@ export default function Services() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 relative inline-block"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
             variants={titleVariants}
           >
             Nuestros Servicios
-            <motion.div
-              className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-brand-dark-green via-brand-mustard to-brand-soft-orange"
-              initial={{ width: 0 }}
-              animate={isInView ? { width: '100%' } : { width: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            />
           </motion.h2>
           <motion.p
             className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mt-6"

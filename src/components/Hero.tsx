@@ -174,16 +174,10 @@ export default function Hero() {
                 Haga realidad su
               </motion.span>
               <motion.span
-                className="block text-gray-900 relative pb-3"
+                className="block text-gray-900"
                 variants={wordVariants}
               >
                 visión digital
-                <motion.span
-                  className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-mustard to-brand-soft-orange"
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: '100%' } : { width: 0 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                />
               </motion.span>
             </motion.h1>
           </div>
