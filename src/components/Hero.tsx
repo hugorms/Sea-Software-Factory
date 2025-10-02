@@ -165,7 +165,7 @@ export default function Hero() {
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
           <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
             <motion.h1
-              className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight"
+              className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
