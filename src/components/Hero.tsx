@@ -160,7 +160,7 @@ export default function Hero() {
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: grid 2 columnas */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-3 sm:gap-4 md:gap-5 lg:gap-10 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-2 sm:gap-3 md:gap-3 lg:gap-10 items-center">
 
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
           <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
