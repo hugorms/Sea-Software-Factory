@@ -152,7 +152,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-[450px] md:min-h-[500px] lg:min-h-[550px] xl:min-h-[650px] 2xl:min-h-screen bg-gradient-to-br from-white via-brand-mustard/10 to-brand-soft-orange/10 pt-20 md:pt-20 lg:pt-24 flex items-center overflow-hidden"
+      className="min-h-[500px] md:min-h-[580px] lg:min-h-[650px] xl:min-h-[750px] 2xl:min-h-screen bg-gradient-to-br from-white via-brand-mustard/10 to-brand-soft-orange/10 pt-20 md:pt-20 lg:pt-24 flex items-center overflow-hidden"
       ref={sectionRef}
     >
       <motion.div
