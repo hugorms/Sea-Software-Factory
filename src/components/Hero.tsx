@@ -329,7 +329,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.02 }}
               >
                 <motion.img
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Innovación tecnológica"
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
