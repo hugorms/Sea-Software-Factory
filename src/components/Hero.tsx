@@ -167,7 +167,7 @@ export default function Hero() {
 
             {/* TÍTULO */}
             <motion.h1
-              className="w-full text-center lg:text-left text-3xl sm:text-4xl font-bold text-gray-900 leading-tight order-1"
+              className="w-full text-center lg:text-left text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold text-gray-900 leading-tight order-1"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -177,7 +177,7 @@ export default function Hero() {
 
             {/* SUBTÍTULO */}
             <motion.p
-              className="text-base sm:text-lg text-gray-600 leading-snug text-center lg:text-left w-full order-2"
+              className="text-base sm:text-lg md:text-xl lg:text-lg text-gray-600 leading-snug text-center lg:text-left w-full order-2"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
