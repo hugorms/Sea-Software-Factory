@@ -160,12 +160,12 @@ export default function Hero() {
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: grid 2 columnas */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-6 sm:gap-7 md:gap-8 lg:gap-10 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-center">
 
           {/* TÍTULO - Orden 1 (móvil y desktop) */}
           <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
             <motion.h1
-              className="text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight"
+              className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -185,7 +185,7 @@ export default function Hero() {
 
           {/* SUBTÍTULO - Orden 2 (móvil y desktop) */}
           <motion.p
-            className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto text-center w-full order-2 lg:order-2 lg:col-start-1 lg:row-start-2"
+            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto text-center w-full order-2 lg:order-2 lg:col-start-1 lg:row-start-2"
             variants={titleVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
