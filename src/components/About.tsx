@@ -305,11 +305,6 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 1.9 }}
                 >
                   24/7
-                  <motion.span
-                    className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"
-                    animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
                 </motion.div>
                 <p className="text-sm sm:text-base text-gray-600 relative z-10">
                   Acceso a datos en tiempo real
