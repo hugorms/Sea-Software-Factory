@@ -160,7 +160,7 @@ export default function Hero() {
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: 2 columnas independientes */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:-gap-8 items-center lg:items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:-gap-8 items-center lg:items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
 
           {/* ==================== COLUMNA IZQUIERDA ==================== */}
           <div className="w-full flex flex-col justify-center items-center space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1 px-3 sm:px-4 lg:pl-8 lg:pr-0">
