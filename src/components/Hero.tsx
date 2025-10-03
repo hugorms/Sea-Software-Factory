@@ -152,22 +152,22 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-[500px] md:min-h-[580px] lg:min-h-[650px] xl:min-h-[750px] 2xl:min-h-screen bg-gradient-to-br from-white via-brand-mustard/10 to-brand-soft-orange/10 pt-20 md:pt-20 lg:pt-24 flex items-center overflow-hidden"
+      className="min-h-[500px] md:min-h-[580px] lg:min-h-[650px] xl:min-h-[750px] 2xl:min-h-screen bg-gradient-to-br from-brand-carbon-black via-brand-anthracite to-brand-carbon-black pt-20 md:pt-20 lg:pt-24 flex items-center overflow-hidden"
       ref={sectionRef}
     >
       <motion.div
-        className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3 md:py-4 lg:py-6"
+        className="max-w-full mx-auto lg:mx-0 lg:ml-0 px-0 py-6 sm:py-8 md:py-10 lg:py-12"
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: 2 columnas independientes */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-8 items-center lg:items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:-gap-8 items-center lg:items-center">
 
           {/* ==================== COLUMNA IZQUIERDA ==================== */}
-          <div className="w-full flex flex-col justify-center space-y-3 sm:space-y-4 order-1 lg:order-1">
+          <div className="w-full flex flex-col justify-center items-center space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1 px-3 sm:px-4 lg:pl-8 lg:pr-0">
 
             {/* TÍTULO */}
             <motion.h1
-              className="w-full text-center lg:text-left text-3xl sm:text-4xl font-bold text-gray-900 leading-tight order-1 px-0 lg:px-0"
+              className="w-full text-center text-4xl sm:text-5xl md:text-6xl font-bold text-brand-green-medium leading-tight order-1"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -177,7 +177,7 @@ export default function Hero() {
 
             {/* SUBTÍTULO */}
             <motion.p
-              className="text-base sm:text-lg text-gray-600 leading-snug text-center lg:text-left w-full order-2 px-0 lg:px-0"
+              className="text-lg sm:text-xl md:text-2xl text-brand-gray-light leading-relaxed text-center w-full order-2"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -187,20 +187,20 @@ export default function Hero() {
 
             {/* BOTONES */}
             <motion.div
-              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full order-4 lg:order-3"
+              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 w-full order-4 lg:order-3 justify-center"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
               <motion.button
                 onClick={scrollToContact}
-                className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
+                className="bg-brand-white text-brand-carbon-black border-2 border-brand-white px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:bg-brand-green-medium hover:text-brand-white hover:border-brand-green-medium transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
                 <motion.span
-                  className="absolute inset-0 bg-brand-dark-green"
+                  className="absolute inset-0 bg-brand-green-medium"
                   initial={{ scale: 0, opacity: 0 }}
                   whileHover={{ scale: 2, opacity: 1 }}
                   transition={{ duration: 0.6 }}
@@ -210,13 +210,13 @@ export default function Hero() {
               </motion.button>
 
               <motion.button
-                className="border-2 border-brand-dark-green text-brand-dark-green px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:border-brand-mustard hover:text-brand-mustard transition-all duration-200 relative overflow-hidden group"
+                className="border-2 border-brand-gray-light text-brand-gray-light px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:border-brand-white hover:text-brand-white transition-all duration-200 relative overflow-hidden group"
                 variants={buttonVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.span
-                  className="absolute inset-0 bg-brand-mustard/10"
+                  className="absolute inset-0 bg-brand-white/10"
                   initial={{ x: '-100%' }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
@@ -227,52 +227,52 @@ export default function Hero() {
 
             {/* ESTADÍSTICAS */}
             <motion.div
-              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-3 lg:gap-4 w-full order-5 lg:order-4"
+              className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6 w-full order-5 lg:order-4 max-w-2xl mx-auto"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               ref={containerRef}
             >
               <motion.div
-                className="text-center lg:text-left"
+                className="text-center"
                 variants={statVariants}
               >
                 <motion.div
-                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green mb-0.5"
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-green-medium mb-0.5"
                   animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                   transition={{ duration: 0.5, delay: 1.5 }}
                 >
                   {count40}%
                 </motion.div>
-                <div className="text-xs sm:text-sm text-gray-600">Reducción de costos</div>
+                <div className="text-xs sm:text-sm text-brand-gray-medium">Reducción de costos</div>
               </motion.div>
 
               <motion.div
-                className="text-center lg:text-left"
+                className="text-center"
                 variants={statVariants}
               >
                 <motion.div
-                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green mb-0.5"
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-green-medium mb-0.5"
                   animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                   transition={{ duration: 0.5, delay: 1.7 }}
                 >
                   {count100}%
                 </motion.div>
-                <div className="text-xs sm:text-sm text-gray-600">Integración completa</div>
+                <div className="text-xs sm:text-sm text-brand-gray-medium">Integración completa</div>
               </motion.div>
 
               <motion.div
-                className="text-center lg:text-left"
+                className="text-center"
                 variants={statVariants}
               >
                 <motion.div
-                  className="text-2xl sm:text-3xl font-bold text-brand-dark-green relative mb-0.5"
+                  className="text-2xl sm:text-3xl font-bold text-brand-green-medium relative mb-0.5"
                   animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                   transition={{ duration: 0.5, delay: 1.9 }}
                 >
                   24/7
                 </motion.div>
-                <div className="text-xs sm:text-sm text-gray-600">Soporte continuo</div>
+                <div className="text-xs sm:text-sm text-brand-gray-medium">Soporte continuo</div>
               </motion.div>
             </motion.div>
 
@@ -281,16 +281,16 @@ export default function Hero() {
 
           {/* ==================== COLUMNA DERECHA (IMÁGENES) ==================== */}
           <motion.div
-            className="relative w-full order-3 lg:order-2"
+            className="relative w-full order-3 lg:order-2 lg:ml-0 lg:pr-8"
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             style={{ y }}
           >
-            <div className="grid grid-cols-2 gap-2 lg:gap-3">
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
               {/* Imagen Grande - Ocupa 2 columnas - MÁS ALTA */}
               <motion.div
-                className="col-span-2 h-64 sm:h-72 md:h-80 lg:h-72 xl:h-80 2xl:h-96 overflow-hidden rounded-lg shadow-lg relative group"
+                className="col-span-2 h-72 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-[450px] overflow-hidden rounded-lg shadow-xl relative group"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -308,7 +308,7 @@ export default function Hero() {
 
               {/* Imágenes Medianas - 2 columnas - MÁS GRANDES */}
               <motion.div
-                className="h-32 sm:h-40 md:h-44 lg:h-48 xl:h-52 2xl:h-64 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-40 sm:h-48 md:h-56 lg:h-56 xl:h-64 2xl:h-72 overflow-hidden rounded-lg shadow-xl relative group"
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -325,7 +325,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
-                className="h-32 sm:h-40 md:h-44 lg:h-48 xl:h-52 2xl:h-64 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-40 sm:h-48 md:h-56 lg:h-56 xl:h-64 2xl:h-72 overflow-hidden rounded-lg shadow-xl relative group"
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -344,7 +344,7 @@ export default function Hero() {
 
             {/* Elementos decorativos flotantes */}
             <motion.div
-              className="absolute -top-4 -right-4 w-20 h-20 bg-brand-mustard/20 rounded-full blur-xl"
+              className="absolute -top-4 -right-4 w-20 h-20 bg-brand-green-medium/30 rounded-full blur-xl"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.6, 0.3],
@@ -356,7 +356,7 @@ export default function Hero() {
               }}
             />
             <motion.div
-              className="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-soft-orange/20 rounded-full blur-xl"
+              className="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-green-medium/20 rounded-full blur-xl"
               animate={{
                 scale: [1, 1.3, 1],
                 opacity: [0.3, 0.5, 0.3],

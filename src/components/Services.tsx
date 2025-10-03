@@ -114,7 +114,7 @@ export default function Services() {
   };
 
   return (
-    <section id="servicios" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-brand-dark-green/5 overflow-hidden" ref={sectionRef}>
+    <section id="servicios" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-gradient-to-br from-brand-carbon-black via-brand-anthracite to-brand-carbon-black overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         {/* Título animado */}
         <motion.div
@@ -124,13 +124,13 @@ export default function Services() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5"
+            className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5"
             variants={titleVariants}
           >
             Nuestros Servicios
           </motion.h2>
           <motion.p
-            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-1.5"
+            className="text-base sm:text-lg text-brand-gray-light max-w-3xl mx-auto mt-1.5"
             variants={titleVariants}
           >
             Ofrecemos un ecosistema completo de servicios tecnológicos para impulsar
@@ -154,10 +154,11 @@ export default function Services() {
               style={{ perspective: 1000 }}
             >
               <motion.div
-                className="bg-white p-3 sm:p-4 md:p-5 shadow-lg relative overflow-hidden h-full"
+                className="bg-brand-anthracite p-3 sm:p-4 md:p-5 shadow-lg border border-brand-gray-medium/20 relative overflow-hidden h-full"
                 whileHover={{
                   y: -8,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                  boxShadow: "0 20px 40px rgba(87, 178, 121, 0.3)",
+                  borderColor: "rgba(87, 178, 121, 0.5)",
                   transition: { duration: 0.3 },
                 }}
               >
@@ -189,7 +190,7 @@ export default function Services() {
                       delay: index * 0.2,
                     }}
                   >
-                    <service.icon className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-black relative z-10" />
+                    <service.icon className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-brand-green-medium relative z-10" />
 
                     {/* Círculo decorativo detrás del icono */}
                     <motion.div
@@ -208,11 +209,11 @@ export default function Services() {
                   </motion.div>
                 </motion.div>
 
-                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1.5 relative z-10">
+                <h3 className="text-base sm:text-lg font-bold text-brand-white mb-1.5 relative z-10">
                   {service.title}
                 </h3>
 
-                <p className="text-sm text-gray-600 mb-2.5 sm:mb-3 relative z-10">
+                <p className="text-sm text-brand-gray-light mb-2.5 sm:mb-3 relative z-10">
                   {service.description}
                 </p>
 
@@ -234,7 +235,7 @@ export default function Services() {
                       >
                         {/* Círculo de fondo animado */}
                         <motion.div
-                          className="w-5 h-5 rounded-full bg-brand-dark-green/10 absolute"
+                          className="w-5 h-5 rounded-full bg-brand-green-medium/20 absolute"
                           initial={{ scale: 0 }}
                           animate={isInView ? { scale: 1 } : { scale: 0 }}
                           transition={{ delay: featureIndex * 0.1 + 0.5, duration: 0.3 }}
@@ -250,12 +251,12 @@ export default function Services() {
                             stiffness: 200
                           }}
                         >
-                          <Check className="w-4 h-4 text-brand-dark-green relative z-10" />
+                          <Check className="w-4 h-4 text-brand-green-medium relative z-10" />
                         </motion.div>
                       </motion.div>
                       <motion.span
-                        className="text-sm text-gray-600"
-                        whileHover={{ x: 3, color: '#1a4d2e' }}
+                        className="text-sm text-brand-gray-light"
+                        whileHover={{ x: 3, color: '#ffffff' }}
                         transition={{ duration: 0.2 }}
                       >
                         {feature}
@@ -266,7 +267,7 @@ export default function Services() {
 
                 {/* Botón "Saber más" con efecto de flecha */}
                 <motion.button
-                  className="mt-3 sm:mt-4 text-brand-dark-green font-semibold hover:text-brand-mustard transition-colors duration-200 flex items-center space-x-1.5 group/btn relative z-10 text-sm"
+                  className="mt-3 sm:mt-4 text-brand-green-medium font-semibold hover:text-brand-white transition-colors duration-200 flex items-center space-x-1.5 group/btn relative z-10 text-sm"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >

@@ -1,5 +1,6 @@
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import logo from '../assets/images/logos/Sea_Software_Factory_Icon_Square 34 x34.svg';
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -11,7 +12,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
   const headerBg = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(26, 77, 46, 0.95)', 'rgba(26, 77, 46, 1)']
+    ['rgba(41, 41, 41, 0.95)', 'rgba(41, 41, 41, 1)']
   );
   const headerShadow = useTransform(
     scrollY,
@@ -49,21 +50,13 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="bg-brand-mustard rounded-full p-2 relative"
-              whileHover={{ scale: 1.1, rotate: 360 }}
+              className="relative"
+              whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.6 }}
             >
-              <Code2 className="h-8 w-8 text-brand-dark-green" />
-              <motion.div
-                className="absolute inset-0 bg-brand-mustard rounded-full"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 0, 0.5],
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <img src={logo} alt="Sea Software Factory" className="h-10 w-10" />
             </motion.div>
-            <span className="text-xl font-bold text-white">Sea Software Factory</span>
+            <span className="text-xl font-bold text-brand-white">Sea Software Factory</span>
           </motion.div>
 
           {/* Desktop Nav */}
@@ -77,7 +70,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-white hover:text-brand-mustard transition-colors duration-200 relative"
+                className="text-brand-white hover:text-brand-green-medium transition-colors duration-200 relative"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.05, duration: 0.4 }}
@@ -85,7 +78,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
               >
                 {item.label}
                 <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-brand-mustard"
+                  className="absolute -bottom-1 left-0 h-0.5 bg-brand-green-medium"
                   initial={{ width: 0 }}
                   whileHover={{ width: '100%' }}
                   transition={{ duration: 0.3 }}
@@ -94,7 +87,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
             ))}
             <motion.button
               onClick={() => scrollToSection('contacto')}
-              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-6 py-2 hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden"
+              className="bg-brand-green-medium text-brand-carbon-black px-6 py-2 hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.4, type: 'spring' as const }}
@@ -113,7 +106,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-white relative"
+            className="md:hidden p-2 text-brand-white relative"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0 }}
@@ -150,7 +143,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="md:hidden absolute top-full left-0 w-full bg-brand-dark-green shadow-lg border-t border-brand-mustard/20 overflow-hidden"
+              className="md:hidden absolute top-full left-0 w-full bg-brand-carbon-black shadow-lg border-t border-brand-green-medium/20 overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -161,7 +154,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="px-6 py-3 text-left text-white hover:text-brand-mustard hover:bg-brand-mustard/10 transition-colors duration-200 relative overflow-hidden group"
+                    className="px-6 py-3 text-left text-brand-white hover:text-brand-green-medium hover:bg-brand-green-medium/10 transition-colors duration-200 relative overflow-hidden group"
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -50, opacity: 0 }}
@@ -169,7 +162,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                     whileTap={{ scale: 0.98 }}
                   >
                     <motion.div
-                      className="absolute inset-0 bg-brand-mustard/10"
+                      className="absolute inset-0 bg-brand-green-medium/10"
                       initial={{ x: '-100%' }}
                       whileHover={{ x: 0 }}
                       transition={{ duration: 0.3 }}
@@ -179,7 +172,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
                 ))}
                 <motion.button
                   onClick={() => scrollToSection('contacto')}
-                  className="mx-6 mt-2 bg-white text-brand-dark-green border-2 border-brand-dark-green px-6 py-3 hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden"
+                  className="mx-6 mt-2 bg-brand-green-medium text-brand-carbon-black px-6 py-3 hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: 20, opacity: 0 }}

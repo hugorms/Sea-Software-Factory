@@ -1,6 +1,7 @@
-import { Code2, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import logo from '../assets/images/logos/Sea_Software_Factory_Icon_Square 34 x34.svg';
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -9,21 +10,14 @@ export default function Footer() {
   const linkVariants = {
     hover: {
       x: 5,
-      color: '#f1c40f',
+      color: '#57b279',
       transition: { duration: 0.2 },
     },
   };
 
-  const iconVariants = {
-    hover: {
-      scale: 1.2,
-      rotate: 360,
-      transition: { duration: 0.6 },
-    },
-  };
 
   return (
-    <footer className="text-white overflow-hidden" style={{ backgroundColor: 'rgba(26, 77, 46, 0.95)' }} ref={footerRef}>
+    <footer className="bg-brand-carbon-black text-brand-white overflow-hidden" ref={footerRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
           <motion.div
@@ -34,24 +28,15 @@ export default function Footer() {
           >
             <div className="flex items-center space-x-2.5 mb-4">
               <motion.div
-                className="bg-brand-mustard rounded-full p-1.5 relative"
-                whileHover="hover"
-                variants={iconVariants}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               >
-                <Code2 className="h-6 w-6 sm:h-7 sm:w-7 text-brand-dark-green" />
-                <motion.div
-                  className="absolute inset-0 bg-brand-mustard rounded-full"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.5, 0, 0.5],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
+                <img src={logo} alt="Sea Software Factory" className="h-8 w-8 sm:h-9 sm:w-9" />
               </motion.div>
               <span className="text-lg sm:text-xl font-bold">Sea Software Factory</span>
             </div>
             <motion.p
-              className="text-gray-400 mb-4 max-w-md text-sm"
+              className="text-brand-gray-medium mb-4 max-w-md text-sm"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -66,13 +51,13 @@ export default function Footer() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               <motion.div
-                className="text-xl sm:text-2xl font-bold text-white"
+                className="text-xl sm:text-2xl font-bold text-brand-green-medium"
                 animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ delay: 0.8, duration: 0.5 }}
               >
                 40%
               </motion.div>
-              <div className="text-xs sm:text-sm text-gray-400">Reducción promedio en costos operativos</div>
+              <div className="text-xs sm:text-sm text-brand-gray-medium">Reducción promedio en costos operativos</div>
             </motion.div>
           </motion.div>
 
@@ -82,7 +67,7 @@ export default function Footer() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3">Servicios</h3>
-            <ul className="space-y-1.5 text-gray-400 text-xs sm:text-sm">
+            <ul className="space-y-1.5 text-brand-gray-medium text-xs sm:text-sm">
               {[
                 'Desarrollo Web',
                 'Apps Móviles',
@@ -99,7 +84,7 @@ export default function Footer() {
                 >
                   <motion.a
                     href="#"
-                    className="hover:text-brand-mustard transition-colors duration-200 inline-block"
+                    className="hover:text-brand-green-medium transition-colors duration-200 inline-block"
                     variants={linkVariants}
                     whileHover="hover"
                   >
@@ -116,7 +101,7 @@ export default function Footer() {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <h3 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3">Contacto</h3>
-            <div className="space-y-2 text-gray-400">
+            <div className="space-y-2 text-brand-gray-medium">
               {[
                 { icon: Mail, text: 'contacto@seasoftwarefactory.com' },
                 { icon: Phone, text: '+58 XXX XXX XXXX' },
@@ -131,7 +116,7 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                 >
                   <motion.div whileHover={{ scale: 1.2, rotate: 15 }}>
-                    <item.icon className="h-4 w-4 text-white flex-shrink-0" />
+                    <item.icon className="h-4 w-4 text-brand-green-medium flex-shrink-0" />
                   </motion.div>
                   <span className="text-xs sm:text-sm">{item.text}</span>
                 </motion.div>
@@ -141,14 +126,14 @@ export default function Footer() {
         </div>
 
         <motion.div
-          className="border-t border-brand-mustard/20 mt-6 sm:mt-8 pt-4 sm:pt-6"
+          className="border-t border-brand-green-medium/20 mt-6 sm:mt-8 pt-4 sm:pt-6"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <motion.p
-              className="text-gray-400 text-xs sm:text-sm"
+              className="text-brand-gray-medium text-xs sm:text-sm"
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ delay: 1, duration: 0.4 }}
@@ -165,7 +150,7 @@ export default function Footer() {
                 <motion.a
                   key={index}
                   href="#"
-                  className="text-gray-400 hover:text-brand-mustard text-xs sm:text-sm transition-colors duration-200"
+                  className="text-brand-gray-medium hover:text-brand-green-medium text-xs sm:text-sm transition-colors duration-200"
                   variants={linkVariants}
                   whileHover="hover"
                 >

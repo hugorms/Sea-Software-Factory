@@ -110,7 +110,7 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-brand-mustard/8 overflow-hidden" ref={sectionRef}>
+    <section className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-gradient-to-br from-brand-carbon-black via-brand-anthracite to-brand-carbon-black overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <motion.div
           className="text-center mb-4 sm:mb-6"
@@ -118,11 +118,11 @@ export default function Testimonial() {
           animate={isInView ? 'visible' : 'hidden'}
           variants={titleVariants}
         >
-          <motion.h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5">
+          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5">
             Lo que Dicen Nuestros Clientes
           </motion.h2>
           <motion.p
-            className="text-base sm:text-lg text-gray-600 mt-1.5"
+            className="text-base sm:text-lg text-brand-gray-light mt-1.5"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -135,7 +135,7 @@ export default function Testimonial() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white p-4 sm:p-5 shadow-lg relative overflow-hidden group"
+              className="bg-brand-anthracite p-4 sm:p-5 shadow-lg border border-brand-gray-medium/20 relative overflow-hidden group"
               custom={index}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -149,7 +149,7 @@ export default function Testimonial() {
             >
               {/* Gradiente decorativo */}
               <motion.div
-                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-mustard/20 to-brand-soft-orange/20 rounded-full blur-2xl"
+                className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-green-medium/20 to-brand-dark-green/20 rounded-full blur-2xl"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileHover={{ opacity: 1, scale: 1.5 }}
                 transition={{ duration: 0.4 }}
@@ -184,7 +184,7 @@ export default function Testimonial() {
               </motion.div>
 
               <motion.p
-                className="text-gray-600 mb-4 italic relative z-10 text-sm sm:text-base"
+                className="text-brand-gray-light mb-4 italic relative z-10 text-sm sm:text-base"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
@@ -206,15 +206,15 @@ export default function Testimonial() {
                   transition={{ duration: 0.3 }}
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">{testimonial.role}</p>
+                  <h4 className="font-semibold text-brand-white text-sm sm:text-base">{testimonial.name}</h4>
+                  <p className="text-xs sm:text-sm text-brand-gray-medium">{testimonial.role}</p>
                 </div>
               </motion.div>
 
               {/* Borde animado */}
               <motion.div
-                className="absolute inset-0 border-2 border-brand-mustard/0"
-                whileHover={{ borderColor: 'rgba(255, 193, 7, 0.3)' }}
+                className="absolute inset-0 border-2 border-brand-green-medium/0"
+                whileHover={{ borderColor: 'rgba(87, 178, 121, 0.3)' }}
                 transition={{ duration: 0.3 }}
               />
             </motion.div>
@@ -230,7 +230,7 @@ export default function Testimonial() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 bg-white p-3 sm:p-4 shadow-lg relative overflow-hidden"
+            className="inline-flex flex-row items-center gap-4 sm:gap-6 bg-brand-anthracite border border-brand-gray-medium/20 p-3 sm:p-4 shadow-lg relative overflow-hidden"
             whileHover={{
               boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
               transition: { duration: 0.3 },
@@ -238,7 +238,7 @@ export default function Testimonial() {
           >
             {/* Fondo decorativo */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-brand-mustard/10 via-transparent to-brand-soft-orange/10"
+              className="absolute inset-0 bg-gradient-to-r from-brand-green-medium/10 via-transparent to-brand-dark-green/10"
               animate={{ x: ['-100%', '100%'] }}
               transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
             />
@@ -251,13 +251,13 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-2xl sm:text-3xl font-bold text-brand-dark-green"
+                className="text-2xl sm:text-3xl font-bold text-brand-green-medium"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
               >
                 {count50}
               </motion.div>
-              <div className="text-xs sm:text-sm text-gray-600">Proyectos exitosos</div>
+              <div className="text-xs sm:text-sm text-brand-gray-medium">Proyectos exitosos</div>
             </motion.div>
 
             <motion.div
@@ -268,13 +268,13 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-2xl sm:text-3xl font-bold text-brand-dark-green"
+                className="text-2xl sm:text-3xl font-bold text-brand-green-medium"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
                 {count98}%
               </motion.div>
-              <div className="text-xs sm:text-sm text-gray-600">Clientes satisfechos</div>
+              <div className="text-xs sm:text-sm text-brand-gray-medium">Clientes satisfechos</div>
             </motion.div>
 
             <motion.div
@@ -285,7 +285,7 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-2xl sm:text-3xl font-bold text-brand-dark-green mb-0.5"
+                className="text-2xl sm:text-3xl font-bold text-brand-green-medium mb-0.5"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1.4 }}
               >
@@ -303,7 +303,7 @@ export default function Testimonial() {
                   </motion.div>
                 ))}
               </div>
-              <div className="text-xs sm:text-sm text-gray-600">Rating promedio</div>
+              <div className="text-xs sm:text-sm text-brand-gray-medium">Rating promedio</div>
             </motion.div>
           </motion.div>
         </motion.div>

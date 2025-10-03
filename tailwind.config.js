@@ -5,9 +5,14 @@ export default {
     extend: {
       colors: {
         'brand': {
-          'dark-green': '#1A4D2E',
-          'mustard': '#E2B447',
-          'soft-orange': '#F4A259',
+          'carbon-black': '#121212',     // Negro carbón (fondos principales)
+          'anthracite': '#292929',       // Gris antracita (cards, navbar)
+          'gray-medium': '#737373',      // Gris medio (textos secundarios)
+          'gray-light': '#ebebeb',       // Gris muy claro (fondos claros)
+          'white': '#ffffff',            // Blanco puro (highlights)
+          // Colores verdes para acentos (mantener compatibilidad)
+          'dark-green': '#3e704d',
+          'green-medium': '#57b279',
         }
       }
     },

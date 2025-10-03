@@ -125,7 +125,7 @@ export default function Process() {
   };
 
   return (
-    <section id="proceso" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-gradient-to-br from-white to-gray-50 overflow-hidden" ref={sectionRef}>
+    <section id="proceso" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-brand-gray-light overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         {/* Título animado */}
         <motion.div
@@ -141,13 +141,13 @@ export default function Process() {
           }}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5"
+            className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5"
             variants={titleVariants}
           >
             Cómo Trabajamos
           </motion.h2>
           <motion.p
-            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-1.5"
+            className="text-base sm:text-lg text-brand-gray-medium max-w-3xl mx-auto mt-1.5"
             variants={titleVariants}
           >
             Nuestro proceso probado garantiza resultados exitosos en cada proyecto,
@@ -167,15 +167,15 @@ export default function Process() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="bg-white p-3 sm:p-4 lg:p-5 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group border border-gray-100 h-full"
+                  className="bg-brand-white p-3 sm:p-4 lg:p-5 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group border border-brand-gray-medium/20 h-full"
                   whileHover={{
                     y: -8,
-                    borderColor: 'rgba(26, 77, 46, 0.3)',
+                    borderColor: 'rgba(87, 178, 121, 0.5)',
                   }}
                 >
                   {/* Efecto de brillo al hover */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-mustard/10 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-green-medium/10 to-transparent"
                     initial={{ x: '-100%', opacity: 0 }}
                     whileHover={{ x: '100%', opacity: 1 }}
                     transition={{ duration: 0.6 }}
@@ -195,19 +195,19 @@ export default function Process() {
                     }}
                   >
                     <motion.div
-                      className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 bg-brand-dark-green/95 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden"
+                      className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 bg-brand-green-medium rounded-full flex items-center justify-center shadow-xl relative overflow-hidden"
                       whileHover={{
                         scale: 1.15,
                         rotate: 360,
-                        boxShadow: "0 20px 60px rgba(26, 77, 46, 0.4)",
+                        boxShadow: "0 20px 60px rgba(87, 178, 121, 0.6)",
                         transition: { duration: 0.6 },
                       }}
                     >
-                      <step.icon className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-white relative z-10" />
+                      <step.icon className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-brand-carbon-black relative z-10" />
 
                       {/* Ripple effect solo al hover */}
                       <motion.div
-                        className="absolute inset-0 bg-brand-mustard rounded-full"
+                        className="absolute inset-0 bg-brand-dark-green rounded-full"
                         initial={{ scale: 1, opacity: 0 }}
                         whileHover={{
                           scale: [1, 1.5],
@@ -218,10 +218,10 @@ export default function Process() {
                     </motion.div>
                   </motion.div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 relative z-10 group-hover:text-brand-dark-green transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-carbon-black mb-1.5 relative z-10 group-hover:text-brand-green-medium transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 mb-3 text-sm sm:text-base relative z-10">
+                  <p className="text-brand-gray-medium mb-3 text-sm sm:text-base relative z-10">
                     {step.description}
                   </p>
 
@@ -237,8 +237,8 @@ export default function Process() {
                         transition={{ delay: index * 0.1 + detailIndex * 0.1 }}
                         whileHover={{ x: 5, transition: { duration: 0.2 } }}
                       >
-                        <div className="w-1.5 h-1.5 bg-brand-dark-green rounded-full mt-1.5 flex-shrink-0" />
-                        <span className="text-xs sm:text-sm text-gray-600 flex-1">{detail}</span>
+                        <div className="w-1.5 h-1.5 bg-brand-green-medium rounded-full mt-1.5 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-brand-gray-medium flex-1">{detail}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -256,15 +256,14 @@ export default function Process() {
           variants={ctaVariants}
         >
           <motion.div
-            className="p-4 sm:p-6 text-white relative overflow-hidden"
-            style={{ backgroundColor: 'rgba(26, 77, 46, 0.95)' }}
+            className="p-4 sm:p-6 bg-brand-white text-brand-carbon-black relative overflow-hidden border border-brand-gray-medium/20"
             whileHover={{
-              boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
+              boxShadow: '0 20px 50px rgba(87, 178, 121, 0.3)',
               transition: { duration: 0.3 },
             }}
           >
             <motion.h3
-              className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 relative z-10"
+              className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 relative z-10 text-brand-carbon-black"
               initial={{ opacity: 0, y: 20 }}
               animate={isTimelineInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.7 }}
@@ -272,7 +271,7 @@ export default function Process() {
               ¿Listo para comenzar tu transformación digital?
             </motion.h3>
             <motion.p
-              className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4 relative z-10"
+              className="text-sm sm:text-base text-brand-gray-medium mb-3 sm:mb-4 relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={isTimelineInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.9 }}
@@ -286,7 +285,7 @@ export default function Process() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
+              className="bg-brand-green-medium text-brand-carbon-black border-2 border-brand-green-medium px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-white hover:text-brand-carbon-black hover:border-brand-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isTimelineInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ delay: 1.1, type: 'spring' as const, stiffness: 200 }}
@@ -294,7 +293,7 @@ export default function Process() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.span
-                className="absolute inset-0 bg-brand-mustard"
+                className="absolute inset-0 bg-brand-white"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 2, opacity: 0.2 }}
                 transition={{ duration: 0.6 }}
