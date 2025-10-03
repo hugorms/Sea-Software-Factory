@@ -97,7 +97,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
               className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-6 py-2 hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.4, type: 'spring' }}
+              transition={{ delay: 0.5, duration: 0.4, type: 'spring' as const }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -154,7 +154,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
             >
               <nav className="flex flex-col py-4">
                 {menuItems.map((item, index) => (

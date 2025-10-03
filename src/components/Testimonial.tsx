@@ -52,7 +52,7 @@ export default function Testimonial() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
@@ -65,7 +65,7 @@ export default function Testimonial() {
       transition: {
         duration: 0.7,
         delay: i * 0.15,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     }),
   };
@@ -77,7 +77,7 @@ export default function Testimonial() {
       scale: 1,
       rotate: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 200,
         damping: 20,
         delay: i * 0.2,
@@ -110,19 +110,19 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-brand-soft-orange/5 overflow-hidden" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <section className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-brand-mustard/8 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <motion.div
-          className="text-center mb-6 sm:mb-16"
+          className="text-center mb-4 sm:mb-6"
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           variants={titleVariants}
         >
-          <motion.h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          <motion.h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5">
             Lo que Dicen Nuestros Clientes
           </motion.h2>
           <motion.p
-            className="text-lg sm:text-xl text-gray-600 mt-6"
+            className="text-base sm:text-lg text-gray-600 mt-1.5"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -131,11 +131,11 @@ export default function Testimonial() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 sm:p-8 shadow-lg relative overflow-hidden group"
+              className="bg-white p-4 sm:p-5 shadow-lg relative overflow-hidden group"
               custom={index}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -156,7 +156,7 @@ export default function Testimonial() {
               />
 
               {/* Estrellas animadas */}
-              <div className="flex items-center mb-4 relative z-10">
+              <div className="flex items-center mb-3 relative z-10">
                 {[...Array(testimonial.stars)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -165,11 +165,11 @@ export default function Testimonial() {
                     transition={{
                       delay: index * 0.15 + i * 0.1,
                       duration: 0.5,
-                      type: 'spring',
+                      type: 'spring' as const,
                       stiffness: 200,
                     }}
                   >
-                    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   </motion.div>
                 ))}
               </div>
@@ -180,11 +180,11 @@ export default function Testimonial() {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: index * 0.15 + 0.3, duration: 0.4 }}
               >
-                <Quote className="h-8 w-8 text-brand-dark-green mb-4 relative z-10" />
+                <Quote className="h-6 w-6 sm:h-7 sm:w-7 text-brand-dark-green mb-3 relative z-10" />
               </motion.div>
 
               <motion.p
-                className="text-gray-600 mb-6 italic relative z-10"
+                className="text-gray-600 mb-4 italic relative z-10 text-sm sm:text-base"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
@@ -193,7 +193,7 @@ export default function Testimonial() {
               </motion.p>
 
               <motion.div
-                className="flex items-center space-x-4 relative z-10"
+                className="flex items-center space-x-3 relative z-10"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: index * 0.15 + 0.7, duration: 0.5 }}
@@ -201,13 +201,13 @@ export default function Testimonial() {
                 <motion.img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 object-cover rounded-full"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-full"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">{testimonial.role}</p>
                 </div>
               </motion.div>
 
@@ -223,14 +223,14 @@ export default function Testimonial() {
 
         {/* Stats bottom */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-6 sm:mt-8 text-center"
           ref={statsRef}
           initial={{ opacity: 0, y: 50 }}
           animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center space-x-8 bg-white p-8 shadow-lg relative overflow-hidden"
+            className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 bg-white p-3 sm:p-4 shadow-lg relative overflow-hidden"
             whileHover={{
               boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
               transition: { duration: 0.3 },
@@ -251,13 +251,13 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-3xl font-bold text-brand-dark-green"
+                className="text-2xl sm:text-3xl font-bold text-brand-dark-green"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
               >
                 {count50}
               </motion.div>
-              <div className="text-sm text-gray-600">Proyectos exitosos</div>
+              <div className="text-xs sm:text-sm text-gray-600">Proyectos exitosos</div>
             </motion.div>
 
             <motion.div
@@ -268,13 +268,13 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-3xl font-bold text-brand-dark-green"
+                className="text-2xl sm:text-3xl font-bold text-brand-dark-green"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
                 {count98}%
               </motion.div>
-              <div className="text-sm text-gray-600">Clientes satisfechos</div>
+              <div className="text-xs sm:text-sm text-gray-600">Clientes satisfechos</div>
             </motion.div>
 
             <motion.div
@@ -285,11 +285,13 @@ export default function Testimonial() {
               animate={isStatsInView ? 'visible' : 'hidden'}
             >
               <motion.div
-                className="text-3xl font-bold text-brand-dark-green flex items-center"
+                className="text-2xl sm:text-3xl font-bold text-brand-dark-green mb-0.5"
                 animate={isStatsInView ? { scale: [1, 1.2, 1] } : {}}
                 transition={{ duration: 0.5, delay: 1.4 }}
               >
                 5.0
+              </motion.div>
+              <div className="flex items-center justify-center mb-0.5">
                 {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -297,11 +299,11 @@ export default function Testimonial() {
                     animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 1.6 + i * 0.1 }}
                   >
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 ml-1" />
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   </motion.div>
                 ))}
-              </motion.div>
-              <div className="text-sm text-gray-600">Rating promedio</div>
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600">Rating promedio</div>
             </motion.div>
           </motion.div>
         </motion.div>

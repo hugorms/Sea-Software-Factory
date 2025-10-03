@@ -49,7 +49,7 @@ export default function Process() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -60,7 +60,7 @@ export default function Process() {
       scaleY: 1,
       transition: {
         duration: 2,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         delay: 0.3,
       },
     },
@@ -78,7 +78,7 @@ export default function Process() {
       rotateY: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         delay: index * 0.2,
       },
     }),
@@ -90,7 +90,7 @@ export default function Process() {
       scale: 1,
       rotate: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 200,
         damping: 15,
         delay: index * 0.2 + 0.2,
@@ -118,18 +118,18 @@ export default function Process() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         delay: 0.5,
       },
     },
   };
 
   return (
-    <section id="proceso" className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-white overflow-hidden" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <section id="proceso" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-gradient-to-br from-white to-gray-50 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         {/* Título animado */}
         <motion.div
-          className="text-center mb-6 sm:mb-16"
+          className="text-center mb-3 sm:mb-6"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={{
@@ -141,13 +141,13 @@ export default function Process() {
           }}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5"
             variants={titleVariants}
           >
             Cómo Trabajamos
           </motion.h2>
           <motion.p
-            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mt-6"
+            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-1.5"
             variants={titleVariants}
           >
             Nuestro proceso probado garantiza resultados exitosos en cada proyecto,
@@ -156,174 +156,93 @@ export default function Process() {
         </motion.div>
 
         <div className="relative" ref={timelineRef}>
-          {/* Timeline line animada */}
-          <motion.div
-            className="hidden lg:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-brand-dark-green to-brand-mustard origin-top"
-            variants={timelineVariants}
-            initial="hidden"
-            animate={isTimelineInView ? "visible" : "hidden"}
-          />
-
-          <div className="space-y-1 sm:space-y-2 lg:space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex-col-reverse lg:space-x-8 mb-3 lg:mb-0`}
-                custom={index}
-                initial="hidden"
-                animate={isTimelineInView ? "visible" : "hidden"}
-                variants={stepVariants}
-                style={{ perspective: 1000 }}
+                className={`${index === steps.length - 1 ? 'lg:col-span-2 lg:max-w-2xl lg:mx-auto' : ''}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                {/* Content Card */}
                 <motion.div
-                  className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right lg:pr-8' : 'lg:text-left lg:pl-8'} mt-1 lg:mt-0 lg:mb-0`}
+                  className="bg-white p-3 sm:p-4 lg:p-5 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group border border-gray-100 h-full"
                   whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3 },
+                    y: -8,
+                    borderColor: 'rgba(26, 77, 46, 0.3)',
                   }}
                 >
+                  {/* Efecto de brillo al hover */}
                   <motion.div
-                    className="bg-gradient-to-r from-brand-mustard/10 to-brand-soft-orange/10 p-3 sm:p-4 hover:shadow-lg transition-shadow duration-300 relative overflow-hidden group"
-                    whileHover={{
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-mustard/10 to-transparent"
+                    initial={{ x: '-100%', opacity: 0 }}
+                    whileHover={{ x: '100%', opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                  />
+
+                  {/* Icon con efecto ripple */}
+                  <motion.div
+                    className="relative z-10 flex-shrink-0 mb-3"
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.15,
+                      type: "spring",
+                      stiffness: 200
                     }}
                   >
-                    {/* Efecto de brillo al hover */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
-                      initial={{ x: '-100%', opacity: 0 }}
-                      whileHover={{ x: '100%', opacity: 0.2 }}
-                      transition={{ duration: 0.6 }}
-                    />
-
-                    {/* Número del paso */}
-                    <motion.div
-                      className={`absolute ${index % 2 === 0 ? 'lg:right-4' : 'lg:left-4'} top-4 text-6xl font-bold text-brand-dark-green/10`}
-                      initial={{ scale: 0, rotate: -90 }}
-                      animate={isTimelineInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -90 }}
-                      transition={{ delay: index * 0.2 + 0.4, duration: 0.6 }}
+                      className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 bg-brand-dark-green/95 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden"
+                      whileHover={{
+                        scale: 1.15,
+                        rotate: 360,
+                        boxShadow: "0 20px 60px rgba(26, 77, 46, 0.4)",
+                        transition: { duration: 0.6 },
+                      }}
                     >
-                      {index + 1}
-                    </motion.div>
+                      <step.icon className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-white relative z-10" />
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 text-center lg:text-left relative z-10">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 mb-2 text-base sm:text-lg text-center lg:text-left relative z-10">
-                      {step.description}
-                    </p>
-
-                    {/* Details con animación progresiva */}
-                    <div className="space-y-2 relative z-10">
-                      {step.details.map((detail, detailIndex) => (
-                        <motion.div
-                          key={detailIndex}
-                          className={`flex items-center space-x-2 ${index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'} justify-start`}
-                          custom={detailIndex}
-                          initial="hidden"
-                          animate={isTimelineInView ? "visible" : "hidden"}
-                          variants={detailVariants}
-                          whileHover={{ x: index % 2 === 0 ? -5 : 5 }}
-                        >
-                          <motion.div
-                            className="w-2 h-2 bg-brand-dark-green rounded-full"
-                            animate={{
-                              scale: [1, 1.5, 1],
-                              opacity: [1, 0.5, 1],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: detailIndex * 0.2,
-                            }}
-                          />
-                          <span className="text-sm text-gray-600">{detail}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Progress bar para cada step */}
-                    <motion.div
-                      className="mt-3 h-1 bg-gray-200 rounded-full overflow-hidden"
-                      initial={{ opacity: 0 }}
-                      animate={isTimelineInView ? { opacity: 1 } : { opacity: 0 }}
-                      transition={{ delay: index * 0.2 + 0.8 }}
-                    >
+                      {/* Ripple effect solo al hover */}
                       <motion.div
-                        className="h-full bg-gradient-to-r from-brand-dark-green to-brand-mustard"
-                        initial={{ width: 0 }}
-                        animate={isTimelineInView ? { width: '100%' } : { width: 0 }}
-                        transition={{
-                          duration: 1.5,
-                          delay: index * 0.2 + 1,
-                          ease: [0.22, 1, 0.36, 1],
+                        className="absolute inset-0 bg-brand-mustard rounded-full"
+                        initial={{ scale: 1, opacity: 0 }}
+                        whileHover={{
+                          scale: [1, 1.5],
+                          opacity: [0.5, 0],
+                          transition: { duration: 0.6 }
                         }}
                       />
                     </motion.div>
                   </motion.div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1.5 relative z-10 group-hover:text-brand-dark-green transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 mb-3 text-sm sm:text-base relative z-10">
+                    {step.description}
+                  </p>
+
+                  {/* Details */}
+                  <div className="space-y-1.5 relative z-10">
+                    {step.details.map((detail, detailIndex) => (
+                      <motion.div
+                        key={detailIndex}
+                        className="flex items-start space-x-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + detailIndex * 0.1 }}
+                        whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                      >
+                        <div className="w-1.5 h-1.5 bg-brand-dark-green rounded-full mt-1.5 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-600 flex-1">{detail}</span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
-
-                {/* Icon con efecto ripple */}
-                <div className="relative z-10 mb-6 sm:mb-8 lg:mb-0">
-                  <motion.div
-                    className="w-16 h-16 sm:w-20 sm:h-20 bg-brand-dark-green/95 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden"
-                    custom={index}
-                    variants={iconVariants}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 360,
-                      transition: { duration: 0.6 },
-                    }}
-                  >
-                    <step.icon className="h-8 w-8 sm:h-10 sm:w-10 text-white relative z-10" />
-
-                    {/* Ripple effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-brand-mustard rounded-full"
-                      animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [0.5, 0, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3,
-                      }}
-                    />
-
-                    {/* Segundo ripple desfasado */}
-                    <motion.div
-                      className="absolute inset-0 bg-brand-soft-orange rounded-full"
-                      animate={{
-                        scale: [1, 1.8, 1],
-                        opacity: [0.3, 0, 0.3],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3 + 0.5,
-                      }}
-                    />
-                  </motion.div>
-
-                  {/* Círculo decorativo exterior */}
-                  <motion.div
-                    className="absolute inset-0 border-2 border-brand-dark-green/30 rounded-full"
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [0.5, 0, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: index * 0.4,
-                    }}
-                  />
-                </div>
-
-                {/* Empty space for alternating layout */}
-                <div className="w-full lg:w-1/2 hidden lg:block"></div>
               </motion.div>
             ))}
           </div>
@@ -331,13 +250,13 @@ export default function Process() {
 
         {/* CTA Final con animación explosiva */}
         <motion.div
-          className="mt-3 sm:mt-6 text-center"
+          className="mt-3 sm:mt-5 text-center"
           initial="hidden"
           animate={isTimelineInView ? "visible" : "hidden"}
           variants={ctaVariants}
         >
           <motion.div
-            className="p-6 sm:p-8 text-white relative overflow-hidden"
+            className="p-4 sm:p-6 text-white relative overflow-hidden"
             style={{ backgroundColor: 'rgba(26, 77, 46, 0.95)' }}
             whileHover={{
               boxShadow: '0 20px 50px rgba(0,0,0,0.3)',
@@ -345,7 +264,7 @@ export default function Process() {
             }}
           >
             <motion.h3
-              className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 relative z-10"
+              className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={isTimelineInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.7 }}
@@ -353,7 +272,7 @@ export default function Process() {
               ¿Listo para comenzar tu transformación digital?
             </motion.h3>
             <motion.p
-              className="text-lg sm:text-xl text-gray-400 mb-4 sm:mb-6 relative z-10"
+              className="text-sm sm:text-base text-gray-400 mb-3 sm:mb-4 relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={isTimelineInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.9 }}
@@ -367,10 +286,10 @@ export default function Process() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
+              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isTimelineInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ delay: 1.1, type: 'spring', stiffness: 200 }}
+              transition={{ delay: 1.1, type: 'spring' as const, stiffness: 200 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

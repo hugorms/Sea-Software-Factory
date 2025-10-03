@@ -78,7 +78,7 @@ export default function Services() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -95,7 +95,7 @@ export default function Services() {
       rotateX: 0,
       transition: {
         duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -114,23 +114,23 @@ export default function Services() {
   };
 
   return (
-    <section id="servicios" className="py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20 bg-brand-mustard/5 overflow-hidden" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <section id="servicios" className="pt-16 pb-6 sm:pt-20 sm:pb-8 md:pt-22 md:pb-10 lg:pt-24 lg:pb-10 xl:pt-28 xl:pb-12 bg-brand-dark-green/5 overflow-hidden" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         {/* Título animado */}
         <motion.div
-          className="text-center mb-6 sm:mb-16"
+          className="text-center mb-3 sm:mb-6"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1.5"
             variants={titleVariants}
           >
             Nuestros Servicios
           </motion.h2>
           <motion.p
-            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mt-6"
+            className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto mt-1.5"
             variants={titleVariants}
           >
             Ofrecemos un ecosistema completo de servicios tecnológicos para impulsar
@@ -140,7 +140,7 @@ export default function Services() {
 
         {/* Grid de servicios con stagger */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -154,7 +154,7 @@ export default function Services() {
               style={{ perspective: 1000 }}
             >
               <motion.div
-                className="bg-white p-4 sm:p-6 md:p-8 shadow-lg relative overflow-hidden h-full"
+                className="bg-white p-3 sm:p-4 md:p-5 shadow-lg relative overflow-hidden h-full"
                 whileHover={{
                   y: -8,
                   boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
@@ -170,7 +170,7 @@ export default function Services() {
 
                 {/* Icono con animaciones múltiples */}
                 <motion.div
-                  className="mb-4 sm:mb-6 relative z-10"
+                  className="mb-2 sm:mb-3 relative z-10"
                   whileHover={{
                     scale: 1.1,
                     rotate: [0, -10, 10, 0],
@@ -189,7 +189,7 @@ export default function Services() {
                       delay: index * 0.2,
                     }}
                   >
-                    <service.icon className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-black relative z-10" />
+                    <service.icon className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-black relative z-10" />
 
                     {/* Círculo decorativo detrás del icono */}
                     <motion.div
@@ -208,16 +208,16 @@ export default function Services() {
                   </motion.div>
                 </motion.div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 relative z-10">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1.5 relative z-10">
                   {service.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 relative z-10">
+                <p className="text-sm text-gray-600 mb-2.5 sm:mb-3 relative z-10">
                   {service.description}
                 </p>
 
                 {/* Features con animación de check progresiva */}
-                <div className="space-y-2 relative z-10">
+                <div className="space-y-1 relative z-10">
                   {service.features.map((feature, featureIndex) => (
                     <motion.div
                       key={featureIndex}
@@ -246,7 +246,7 @@ export default function Services() {
                           transition={{
                             delay: featureIndex * 0.1 + 0.6,
                             duration: 0.4,
-                            type: "spring",
+                            type: "spring" as const,
                             stiffness: 200
                           }}
                         >
@@ -266,7 +266,7 @@ export default function Services() {
 
                 {/* Botón "Saber más" con efecto de flecha */}
                 <motion.button
-                  className="mt-6 text-brand-dark-green font-semibold hover:text-brand-mustard transition-colors duration-200 flex items-center space-x-2 group/btn relative z-10"
+                  className="mt-3 sm:mt-4 text-brand-dark-green font-semibold hover:text-brand-mustard transition-colors duration-200 flex items-center space-x-1.5 group/btn relative z-10 text-sm"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >

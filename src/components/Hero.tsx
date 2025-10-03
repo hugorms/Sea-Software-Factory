@@ -40,9 +40,9 @@ export default function Hero() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
+  const y = useTransform(scrollY, [100, 600], [0, 150]);
+  const opacity = useTransform(scrollY, [100, 400], [1, 0]);
+  const scale = useTransform(scrollY, [100, 400], [1, 0.95]);
 
   const { count: count40, setIsVisible: setVisible40 } = useCountAnimation(40, 2);
   const { count: count100, setIsVisible: setVisible100 } = useCountAnimation(100, 2.3);
@@ -80,7 +80,7 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -93,7 +93,7 @@ export default function Hero() {
       rotateX: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -105,7 +105,7 @@ export default function Hero() {
       y: 0,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 100,
         damping: 15,
       },
@@ -129,7 +129,7 @@ export default function Hero() {
       scale: 1,
       rotate: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 200,
         damping: 20,
       },
@@ -144,7 +144,7 @@ export default function Hero() {
       x: 0,
       transition: {
         duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -156,47 +156,132 @@ export default function Hero() {
       ref={sectionRef}
     >
       <motion.div
-        className="max-w-screen-2xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4 md:py-5 lg:py-8"
+        className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-6 py-2 sm:py-3 md:py-4 lg:py-6"
         style={{ opacity, scale }}
       >
-        {/* Layout para móvil: vertical / Layout para desktop: grid 2 columnas */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[42%_58%] gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-center">
+        {/* Layout para móvil: vertical / Layout para desktop: 2 columnas independientes */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-8 items-center lg:items-center">
 
-          {/* TÍTULO - Orden 1 (móvil y desktop) */}
-          <div className="w-full text-center order-1 lg:order-1 lg:col-start-1 lg:row-start-1">
+          {/* ==================== COLUMNA IZQUIERDA ==================== */}
+          <div className="w-full flex flex-col justify-center space-y-3 sm:space-y-4 order-1 lg:order-1">
+
+            {/* TÍTULO */}
             <motion.h1
-              className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+              className="w-full text-center lg:text-left text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              <motion.span className="lg:block" variants={wordVariants}>
-                Haga realidad su
-              </motion.span>
-              {" "}
-              <motion.span
-                className="lg:block text-gray-900"
-                variants={wordVariants}
-              >
-                visión digital
-              </motion.span>
+              Haga realidad su visión digital
             </motion.h1>
+
+            {/* SUBTÍTULO */}
+            <motion.p
+              className="text-base sm:text-lg text-gray-600 leading-snug text-center lg:text-left w-full"
+              variants={titleVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
+              Líderes en desarrollo de software para la transformación digital.
+            </motion.p>
+
+            {/* BOTONES */}
+            <motion.div
+              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full"
+              variants={titleVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
+              <motion.button
+                onClick={scrollToContact}
+                className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+              >
+                <motion.span
+                  className="absolute inset-0 bg-brand-dark-green"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 2, opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                />
+                <span className="relative z-10">Solicita tu consulta gratuita</span>
+                <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+
+              <motion.button
+                className="border-2 border-brand-dark-green text-brand-dark-green px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base font-semibold hover:border-brand-mustard hover:text-brand-mustard transition-all duration-200 relative overflow-hidden group"
+                variants={buttonVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.span
+                  className="absolute inset-0 bg-brand-mustard/10"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10">Ver nuestros casos de éxito</span>
+              </motion.button>
+            </motion.div>
+
+            {/* ESTADÍSTICAS */}
+            <motion.div
+              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-3 lg:gap-4 w-full"
+              variants={titleVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              ref={containerRef}
+            >
+              <motion.div
+                className="text-center lg:text-left"
+                variants={statVariants}
+              >
+                <motion.div
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green mb-0.5"
+                  animate={isInView ? { scale: [1, 1.2, 1] } : {}}
+                  transition={{ duration: 0.5, delay: 1.5 }}
+                >
+                  {count40}%
+                </motion.div>
+                <div className="text-xs sm:text-sm text-gray-600">Reducción de costos</div>
+              </motion.div>
+
+              <motion.div
+                className="text-center lg:text-left"
+                variants={statVariants}
+              >
+                <motion.div
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green mb-0.5"
+                  animate={isInView ? { scale: [1, 1.2, 1] } : {}}
+                  transition={{ duration: 0.5, delay: 1.7 }}
+                >
+                  {count100}%
+                </motion.div>
+                <div className="text-xs sm:text-sm text-gray-600">Integración completa</div>
+              </motion.div>
+
+              <motion.div
+                className="text-center lg:text-left"
+                variants={statVariants}
+              >
+                <motion.div
+                  className="text-2xl sm:text-3xl font-bold text-brand-dark-green relative mb-0.5"
+                  animate={isInView ? { scale: [1, 1.2, 1] } : {}}
+                  transition={{ duration: 0.5, delay: 1.9 }}
+                >
+                  24/7
+                </motion.div>
+                <div className="text-xs sm:text-sm text-gray-600">Soporte continuo</div>
+              </motion.div>
+            </motion.div>
+
           </div>
+          {/* ==================== FIN COLUMNA IZQUIERDA ==================== */}
 
-          {/* SUBTÍTULO - Orden 2 (móvil y desktop) */}
-          <motion.p
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg lg:max-w-xl mx-auto text-center w-full order-2 lg:order-2 lg:col-start-1 lg:row-start-2"
-            variants={titleVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            Líderes en desarrollo de software
-            para la transformación digital.
-          </motion.p>
-
-          {/* COLLAGE DE IMÁGENES - Orden 3 en móvil, pero en desktop va a la derecha (todas las filas) */}
+          {/* ==================== COLUMNA DERECHA (IMÁGENES) ==================== */}
           <motion.div
-            className="relative w-full order-3 lg:order-3 lg:col-start-2 lg:row-start-1 lg:row-span-4"
+            className="relative w-full order-2 lg:order-2"
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -205,7 +290,7 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-2 lg:gap-3">
               {/* Imagen Grande - Ocupa 2 columnas - MÁS ALTA */}
               <motion.div
-                className="col-span-2 h-56 sm:h-48 md:h-52 lg:h-60 xl:h-64 2xl:h-80 overflow-hidden rounded-lg shadow-lg relative group"
+                className="col-span-2 h-64 sm:h-72 md:h-80 lg:h-72 xl:h-80 2xl:h-96 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -217,13 +302,13 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
                 />
               </motion.div>
 
               {/* Imágenes Medianas - 2 columnas - MÁS GRANDES */}
               <motion.div
-                className="h-28 sm:h-36 md:h-40 lg:h-44 xl:h-48 2xl:h-60 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-32 sm:h-40 md:h-44 lg:h-48 xl:h-52 2xl:h-64 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
@@ -235,12 +320,12 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
                 />
               </motion.div>
 
               <motion.div
-                className="h-28 sm:h-36 md:h-40 lg:h-44 xl:h-48 2xl:h-60 overflow-hidden rounded-lg shadow-lg relative group"
+                className="h-32 sm:h-40 md:h-44 lg:h-48 xl:h-52 2xl:h-64 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -252,7 +337,7 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
                 />
               </motion.div>
             </div>
@@ -285,96 +370,7 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* BOTONES - Orden 4 en móvil, orden 3 en desktop */}
-          <motion.div
-            className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full order-4 lg:order-4 lg:col-start-1 lg:row-start-3"
-            variants={titleVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            <motion.button
-              onClick={scrollToContact}
-              className="bg-white text-brand-dark-green border-2 border-brand-dark-green px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 relative overflow-hidden group"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <motion.span
-                className="absolute inset-0 bg-brand-dark-green"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 2, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              />
-              <span className="relative z-10">Solicita tu consulta gratuita</span>
-              <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-
-            <motion.button
-              className="border-2 border-brand-dark-green text-brand-dark-green px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:border-brand-mustard hover:text-brand-mustard transition-all duration-200 relative overflow-hidden group"
-              variants={buttonVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.span
-                className="absolute inset-0 bg-brand-mustard/10"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative z-10">Ver nuestros casos de éxito</span>
-            </motion.button>
-          </motion.div>
-
-          {/* ESTADÍSTICAS - Orden 5 en móvil, orden 4 en desktop */}
-          <motion.div
-            className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-5 w-full order-5 lg:order-5 lg:col-start-1 lg:row-start-4"
-            variants={titleVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            ref={containerRef}
-          >
-            <motion.div
-              className="text-center"
-              variants={statVariants}
-            >
-              <motion.div
-                className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green"
-                animate={isInView ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ duration: 0.5, delay: 1.5 }}
-              >
-                {count40}%
-              </motion.div>
-              <div className="text-xs sm:text-sm text-gray-600">Reducción de costos</div>
-            </motion.div>
-
-            <motion.div
-              className="text-center"
-              variants={statVariants}
-            >
-              <motion.div
-                className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-brand-dark-green"
-                animate={isInView ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ duration: 0.5, delay: 1.7 }}
-              >
-                {count100}%
-              </motion.div>
-              <div className="text-xs sm:text-sm text-gray-600">Integración completa</div>
-            </motion.div>
-
-            <motion.div
-              className="text-center"
-              variants={statVariants}
-            >
-              <motion.div
-                className="text-2xl sm:text-3xl font-bold text-brand-dark-green relative"
-                animate={isInView ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ duration: 0.5, delay: 1.9 }}
-              >
-                24/7
-              </motion.div>
-              <div className="text-xs sm:text-sm text-gray-600">Soporte continuo</div>
-            </motion.div>
-          </motion.div>
+          {/* ==================== FIN COLUMNA DERECHA ==================== */}
 
         </div>
       </motion.div>
