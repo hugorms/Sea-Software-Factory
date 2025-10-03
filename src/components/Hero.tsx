@@ -1,7 +1,9 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import heroImage from '../assets/images/hero/image.jpg';
+import heroImage2 from '../assets/images/hero/imgenlista.webp';
+import heroImage3 from '../assets/images/hero/imagen3lista.jpg';
 
 // Hook para contador animado
 function useCountAnimation(end: number, duration: number = 2) {
@@ -62,35 +64,11 @@ export default function Hero() {
   };
 
   // Variantes de animación
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
   const titleVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    },
-  };
-
-  const wordVariants = {
-    hidden: { opacity: 0, y: 50, rotateX: -90 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
       transition: {
         duration: 0.8,
         ease: [0.22, 1, 0.36, 1] as const,
@@ -156,14 +134,14 @@ export default function Hero() {
       ref={sectionRef}
     >
       <motion.div
-        className="max-w-full mx-auto lg:mx-0 lg:ml-0 px-0 py-6 sm:py-8 md:py-10 lg:py-12"
+        className="max-w-full mx-auto lg:mx-0 lg:-ml-16 px-0 py-6 sm:py-8 md:py-10 lg:py-12"
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: 2 columnas independientes */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:-gap-8 items-center lg:items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
+        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:gap-2 items-center lg:items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
 
           {/* ==================== COLUMNA IZQUIERDA ==================== */}
-          <div className="w-full flex flex-col justify-center items-center space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1 px-3 sm:px-4 lg:pl-8 lg:pr-0">
+          <div className="w-full flex flex-col justify-center items-center space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1 px-3 sm:px-4 lg:pl-4 lg:pr-0">
 
             {/* TÍTULO */}
             <motion.h1
@@ -281,18 +259,18 @@ export default function Hero() {
 
           {/* ==================== COLUMNA DERECHA (IMÁGENES) ==================== */}
           <motion.div
-            className="relative w-full order-3 lg:order-2 lg:ml-0 lg:pr-8"
+            className="relative w-full order-3 lg:order-2 lg:ml-0 lg:pr-12"
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             style={{ y }}
           >
-            <div className="grid grid-cols-2 gap-3 lg:gap-4">
-              {/* Imagen Grande - Ocupa 2 columnas - MÁS ALTA */}
+            <div className="grid grid-cols-3 gap-3 lg:gap-4">
+              {/* Imagen Principal - Columna izquierda completa */}
               <motion.div
-                className="col-span-2 h-72 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-[450px] overflow-hidden rounded-lg shadow-xl relative group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                className="col-span-1 row-span-2 overflow-hidden rounded-lg shadow-xl relative group"
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
                 whileHover={{ scale: 1.02 }}
               >
@@ -306,17 +284,17 @@ export default function Hero() {
                 />
               </motion.div>
 
-              {/* Imágenes Medianas - 2 columnas - MÁS GRANDES */}
+              {/* Segunda imagen - Superior derecha */}
               <motion.div
-                className="h-40 sm:h-48 md:h-56 lg:h-56 xl:h-64 2xl:h-72 overflow-hidden rounded-lg shadow-xl relative group"
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
+                className="col-span-2 h-80 sm:h-96 md:h-[380px] lg:h-96 xl:h-[380px] 2xl:h-[440px] overflow-hidden rounded-lg shadow-xl relative group"
+                initial={{ opacity: 0, y: -30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
                 whileHover={{ scale: 1.02 }}
               >
                 <motion.img
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Equipo de desarrollo"
+                  src={heroImage2}
+                  alt="Desarrollo de software"
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}
@@ -324,16 +302,35 @@ export default function Hero() {
                 />
               </motion.div>
 
+              {/* Tercera imagen - Medio derecha */}
               <motion.div
-                className="h-40 sm:h-48 md:h-56 lg:h-56 xl:h-64 2xl:h-72 overflow-hidden rounded-lg shadow-xl relative group"
+                className="col-span-1 h-72 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-[310px] overflow-hidden rounded-lg shadow-xl relative group"
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.img
+                  src={heroImage3}
+                  alt="Equipo de trabajo"
+                  className="w-full h-full object-cover"
+                  initial={{ scale: 1.2 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] as const }}
+                />
+              </motion.div>
+
+              {/* Cuarta imagen - Inferior derecha */}
+              <motion.div
+                className="col-span-1 h-72 sm:h-80 md:h-96 lg:h-80 xl:h-96 2xl:h-[310px] overflow-hidden rounded-lg shadow-xl relative group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
                 whileHover={{ scale: 1.02 }}
               >
                 <motion.img
-                  src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Desarrollo web"
+                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Innovación tecnológica"
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}
                   animate={{ scale: 1 }}

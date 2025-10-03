@@ -54,62 +54,6 @@ export default function Process() {
     },
   };
 
-  const timelineVariants = {
-    hidden: { scaleY: 0 },
-    visible: {
-      scaleY: 1,
-      transition: {
-        duration: 2,
-        ease: [0.22, 1, 0.36, 1] as const,
-        delay: 0.3,
-      },
-    },
-  };
-
-  const stepVariants = {
-    hidden: (index: number) => ({
-      opacity: 0,
-      x: index % 2 === 0 ? -100 : 100,
-      rotateY: index % 2 === 0 ? -20 : 20,
-    }),
-    visible: (index: number) => ({
-      opacity: 1,
-      x: 0,
-      rotateY: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1] as const,
-        delay: index * 0.2,
-      },
-    }),
-  };
-
-  const iconVariants = {
-    hidden: { scale: 0, rotate: -180 },
-    visible: (index: number) => ({
-      scale: 1,
-      rotate: 0,
-      transition: {
-        type: 'spring' as const,
-        stiffness: 200,
-        damping: 15,
-        delay: index * 0.2 + 0.2,
-      },
-    }),
-  };
-
-  const detailVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.4,
-      },
-    }),
-  };
-
   const ctaVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
