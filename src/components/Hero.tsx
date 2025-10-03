@@ -205,7 +205,7 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-2 lg:gap-3">
               {/* Imagen Grande - Ocupa 2 columnas - MÁS ALTA */}
               <motion.div
-                className="col-span-2 h-40 sm:h-48 md:h-52 lg:h-60 xl:h-64 2xl:h-80 overflow-hidden rounded-lg shadow-lg relative group"
+                className="col-span-2 h-56 sm:h-48 md:h-52 lg:h-60 xl:h-64 2xl:h-80 overflow-hidden rounded-lg shadow-lg relative group"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
