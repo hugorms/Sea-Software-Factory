@@ -42,9 +42,9 @@ export default function Hero() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [200, 700], [0, 150]);
-  const opacity = useTransform(scrollY, [200, 500], [1, 0]);
-  const scale = useTransform(scrollY, [200, 500], [1, 0.95]);
+  const y = useTransform(scrollY, [250, 750], [0, 150]);
+  const opacity = useTransform(scrollY, [250, 550], [1, 0]);
+  const scale = useTransform(scrollY, [250, 550], [1, 0.95]);
 
   const { count: count40, setIsVisible: setVisible40 } = useCountAnimation(40, 2);
   const { count: count100, setIsVisible: setVisible100 } = useCountAnimation(100, 2.3);
