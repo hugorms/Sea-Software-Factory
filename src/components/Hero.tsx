@@ -167,7 +167,7 @@ export default function Hero() {
 
             {/* TÍTULO */}
             <motion.h1
-              className="w-full text-center lg:text-left text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+              className="w-full text-center lg:text-left text-3xl sm:text-4xl font-bold text-gray-900 leading-tight order-1"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -177,7 +177,7 @@ export default function Hero() {
 
             {/* SUBTÍTULO */}
             <motion.p
-              className="text-base sm:text-lg text-gray-600 leading-snug text-center lg:text-left w-full"
+              className="text-base sm:text-lg text-gray-600 leading-snug text-center lg:text-left w-full order-2"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -187,7 +187,7 @@ export default function Hero() {
 
             {/* BOTONES */}
             <motion.div
-              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full"
+              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full order-4 lg:order-3"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -227,7 +227,7 @@ export default function Hero() {
 
             {/* ESTADÍSTICAS */}
             <motion.div
-              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-3 lg:gap-4 w-full"
+              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-3 lg:gap-4 w-full order-5 lg:order-4"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -281,7 +281,7 @@ export default function Hero() {
 
           {/* ==================== COLUMNA DERECHA (IMÁGENES) ==================== */}
           <motion.div
-            className="relative w-full order-2 lg:order-2"
+            className="relative w-full order-3 lg:order-2"
             variants={imageVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
