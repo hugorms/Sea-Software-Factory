@@ -170,11 +170,12 @@ export default function Hero() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              <motion.span className="block" variants={wordVariants}>
+              <motion.span className="lg:block" variants={wordVariants}>
                 Haga realidad su
               </motion.span>
+              {" "}
               <motion.span
-                className="block text-gray-900"
+                className="lg:block text-gray-900"
                 variants={wordVariants}
               >
                 visión digital
