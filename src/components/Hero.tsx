@@ -185,7 +185,7 @@ export default function Hero() {
 
           {/* SUBTÍTULO - Orden 2 (móvil y desktop) */}
           <motion.p
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto text-center w-full order-2 lg:order-2 lg:col-start-1 lg:row-start-2"
+            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg lg:max-w-xl mx-auto text-center w-full order-2 lg:order-2 lg:col-start-1 lg:row-start-2"
             variants={titleVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
