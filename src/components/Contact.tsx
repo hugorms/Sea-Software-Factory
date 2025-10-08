@@ -118,7 +118,7 @@ export default function Contact() {
           animate={isInView ? 'visible' : 'hidden'}
           variants={titleVariants}
         >
-          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5">
+          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5 font-poppins">
             Da el Siguiente Paso Hacia tu Transformación Digital
           </motion.h2>
           <motion.p

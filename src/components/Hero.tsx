@@ -145,7 +145,7 @@ export default function Hero() {
 
             {/* TÍTULO */}
             <motion.h1
-              className="w-full text-center text-4xl sm:text-5xl md:text-6xl font-bold text-brand-green-medium leading-tight order-1"
+              className="w-full text-center text-4xl sm:text-5xl md:text-6xl font-bold text-brand-green-medium leading-tight order-1 font-poppins"
               variants={titleVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}

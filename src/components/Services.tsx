@@ -124,7 +124,7 @@ export default function Services() {
           variants={containerVariants}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5"
+            className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5 font-poppins"
             variants={titleVariants}
           >
             Nuestros Servicios

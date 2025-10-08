@@ -120,7 +120,7 @@ export default function About() {
           animate={isInView ? 'visible' : 'hidden'}
           variants={titleVariants}
         >
-          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5">
+          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5 font-poppins">
             Acerca de Nosotros
           </motion.h2>
           <motion.p

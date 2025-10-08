@@ -13,7 +13,9 @@
       "Bash(git commit:*)",
       "Bash(git restore:*)",
       "Bash(npx tsc:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Read(//c/Users/roberthp/Desktop/**)",
+      "Bash(copy:*)"
     ],
     "deny": [],
     "ask": []

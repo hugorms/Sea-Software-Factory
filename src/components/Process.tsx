@@ -85,7 +85,7 @@ export default function Process() {
           }}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5"
+            className="text-3xl sm:text-4xl font-bold text-brand-carbon-black mb-1.5 font-poppins"
             variants={titleVariants}
           >
             Cómo Trabajamos

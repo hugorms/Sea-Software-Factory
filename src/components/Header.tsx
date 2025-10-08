@@ -1,6 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import logo from '../assets/images/logos/Sea_Software_Factory_Icon_Square 34 x34.svg';
+import logo from '../assets/images/logos/Ssf logo blanco.svg';
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -41,7 +41,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
       style={{ backgroundColor: headerBg, boxShadow: headerShadow }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-1.5 sm:py-2">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-3"
@@ -54,9 +54,9 @@ export default function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.6 }}
             >
-              <img src={logo} alt="Sea Software Factory" className="h-10 w-10" />
+              <img src={logo} alt="Sea Software Factory" className="h-12 w-12 sm:h-14 sm:w-14" />
             </motion.div>
-            <span className="text-xl font-bold text-brand-white">Sea Software Factory</span>
+            <span className="text-xl font-bold text-brand-white font-poppins">Sea Software Factory</span>
           </motion.div>
 
           {/* Desktop Nav */}

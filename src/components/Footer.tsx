@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import logo from '../assets/images/logos/Sea_Software_Factory_Icon_Square 34 x34.svg';
+import logo from '../assets/images/logos/Ssf logo blanco.svg';
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -31,9 +31,9 @@ export default function Footer() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                <img src={logo} alt="Sea Software Factory" className="h-8 w-8 sm:h-9 sm:w-9" />
+                <img src={logo} alt="Sea Software Factory" className="h-10 w-10 sm:h-12 sm:w-12" />
               </motion.div>
-              <span className="text-lg sm:text-xl font-bold">Sea Software Factory</span>
+              <span className="text-lg sm:text-xl font-bold font-poppins">Sea Software Factory</span>
             </div>
             <motion.p
               className="text-brand-gray-medium mb-4 max-w-md text-sm"

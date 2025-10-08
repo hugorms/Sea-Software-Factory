@@ -118,7 +118,7 @@ export default function Testimonial() {
           animate={isInView ? 'visible' : 'hidden'}
           variants={titleVariants}
         >
-          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5">
+          <motion.h2 className="text-3xl sm:text-4xl font-bold text-brand-white mb-1.5 font-poppins">
             Lo que Dicen Nuestros Clientes
           </motion.h2>
           <motion.p
