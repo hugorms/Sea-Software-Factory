@@ -229,7 +229,7 @@ export default function Process() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="bg-brand-green-medium text-brand-carbon-black border-2 border-brand-green-medium px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-white hover:text-brand-carbon-black hover:border-brand-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
+              className="bg-brand-green-medium text-brand-carbon-black px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold hover:bg-brand-dark-green hover:text-white transition-all duration-200 rounded-lg relative overflow-hidden group z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isTimelineInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ delay: 1.1, type: 'spring' as const, stiffness: 200 }}
@@ -237,7 +237,7 @@ export default function Process() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.span
-                className="absolute inset-0 bg-brand-white"
+                className="absolute inset-0 bg-brand-dark-green"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 2, opacity: 0.2 }}
                 transition={{ duration: 0.6 }}
