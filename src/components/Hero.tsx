@@ -130,18 +130,18 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-[500px] md:min-h-[580px] lg:min-h-[650px] xl:min-h-[750px] 2xl:min-h-screen bg-gradient-to-br from-brand-carbon-black via-brand-anthracite to-brand-carbon-black pt-20 md:pt-20 lg:pt-24 flex items-center overflow-hidden"
+      className="min-h-[450px] md:min-h-[520px] lg:min-h-[580px] xl:min-h-[650px] 2xl:min-h-screen bg-gradient-to-br from-brand-carbon-black via-brand-anthracite to-brand-carbon-black pt-16 md:pt-18 lg:pt-20 flex items-center overflow-hidden"
       ref={sectionRef}
     >
       <motion.div
-        className="max-w-full mx-auto lg:mx-0 lg:-ml-16 px-0 py-6 sm:py-8 md:py-10 lg:py-12"
+        className="max-w-full mx-auto lg:mx-0 lg:-ml-16 px-0 py-4 sm:py-6 md:py-8 lg:py-10"
         style={{ opacity, scale }}
       >
         {/* Layout para móvil: vertical / Layout para desktop: 2 columnas independientes */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-6 sm:gap-8 md:gap-10 lg:gap-2 items-center lg:items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
+        <div className="flex flex-col lg:grid lg:grid-cols-[48%_58%] gap-4 sm:gap-6 md:gap-8 lg:gap-2 items-center lg:items-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
 
           {/* ==================== COLUMNA IZQUIERDA ==================== */}
-          <div className="w-full flex flex-col justify-center items-center space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1 px-3 sm:px-4 lg:pl-4 lg:pr-0">
+          <div className="w-full flex flex-col justify-center items-center space-y-3 sm:space-y-4 md:space-y-5 order-1 lg:order-1 px-3 sm:px-4 lg:pl-4 lg:pr-0">
 
             {/* TÍTULO */}
             <motion.h1
