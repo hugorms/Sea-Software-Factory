@@ -5,16 +5,19 @@ import heroImage from '../assets/images/hero/image.jpg';
 import heroImage2 from '../assets/images/hero/imgenlista.webp';
 import heroImage3 from '../assets/images/hero/imagen3lista.jpg';
 
-// Hook para contador animado
+// Hook para contador animado mejorado para Vercel
 function useCountAnimation(end: number, duration: number = 2) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasStarted) return;
 
+    setHasStarted(true);
     let startTime: number | null = null;
     const startValue = 0;
+    let animationId: number;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
@@ -26,12 +29,18 @@ function useCountAnimation(end: number, duration: number = 2) {
       setCount(currentCount);
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
-  }, [end, duration, isVisible]);
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, [end, duration, isVisible, hasStarted]);
 
   return { count, setIsVisible };
 }
@@ -39,7 +48,7 @@ function useCountAnimation(end: number, duration: number = 2) {
 export default function Hero() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [250, 750], [0, 150]);
@@ -49,12 +58,27 @@ export default function Hero() {
   const { count: count40, setIsVisible: setVisible40 } = useCountAnimation(40, 2);
   const { count: count100, setIsVisible: setVisible100 } = useCountAnimation(100, 2.3);
 
+  // Mejorar la detección de visibilidad para Vercel
   useEffect(() => {
-    if (isInView) {
+    const timer = setTimeout(() => {
+      if (isInView) {
+        setVisible40(true);
+        setVisible100(true);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [isInView, setVisible40, setVisible100]);
+
+  // Fallback: activar contadores después de un tiempo si no se detecta visibilidad
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
       setVisible40(true);
       setVisible100(true);
-    }
-  }, [isInView, setVisible40, setVisible100]);
+    }, 2000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [setVisible40, setVisible100]);
 
   const scrollToContact = () => {
     const element = document.getElementById('contacto');
