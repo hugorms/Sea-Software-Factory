@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import heroImage from '../assets/images/hero/image.jpg';
-import heroImage2 from '../assets/images/hero/imgenlista.webp';
+import heroImage2 from '../assets/images/hero/imgenlista.png';
 import heroImage3 from '../assets/images/hero/imagen3lista.jpg';
 
 // Hook para contador animado
