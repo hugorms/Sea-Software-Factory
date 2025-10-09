@@ -244,7 +244,7 @@ export default function Hero() {
                   animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                   transition={{ duration: 0.5, delay: 1.5 }}
                 >
-                  {count40}%
+                  {count40 || 40}%
                 </motion.div>
                 <div className="text-xs sm:text-sm text-brand-gray-medium">Reducción de costos</div>
               </motion.div>
@@ -258,7 +258,7 @@ export default function Hero() {
                   animate={isInView ? { scale: [1, 1.2, 1] } : {}}
                   transition={{ duration: 0.5, delay: 1.7 }}
                 >
-                  {count100}%
+                  {count100 || 100}%
                 </motion.div>
                 <div className="text-xs sm:text-sm text-brand-gray-medium">Integración completa</div>
               </motion.div>
